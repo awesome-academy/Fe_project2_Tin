@@ -6,6 +6,7 @@ import spDetail4 from "../../../images/sp-detail4.png";
 import asideImg from "../../../images/aside-img.png";
 import asidePrice from "../../../images/aside-price.png";
 import heart4 from "../../../images/4heart.png";
+import ListRecentlyProduct from "./ListRecentlyProduct";
 
 export default class MoreInfo extends Component {
     render() {
@@ -25,9 +26,12 @@ export default class MoreInfo extends Component {
                             </a>
                             <hr />
                         </div>
+
+                        {/* COMPONENT RECENTLY VIEWED PRODUCTS        */}
+
                         <div className="col-md-3 d-none d-lg-block">
                             <a className="detail__deco-a" href="#">
-                                <strong>SẢN PHẨM BÁN CHẠY</strong>
+                                <strong>ĐÃ XEM GẦN ĐÂY</strong>
                             </a>
                             <hr />
                         </div>
@@ -95,46 +99,15 @@ export default class MoreInfo extends Component {
                                 </div>
                             </div>
                         </div>
+
+                        {/* COMPONENT RECENTLY VIEWED PRODUCTS        */}
+
                         <div className="col-md-3 d-none d-lg-block">
-                            <div className="row mb-4">
-                                <div className="col-6">
-                                    <img alt="" className="detail__img" src={asideImg} />
-                                </div>
-                                <div className="pl-0 pr-0 col-6">
-                                    <a className="detail__deco-a" href="#">
-                                        <strong> Mỹ phẩm Châu Âu</strong>
-                                    </a>
-                                    <img alt="" className="detail__img" src={heart4} />
-                                    <img alt="" src={asidePrice} />
-                                </div>
-                            </div>
+                            <ListRecentlyProduct />
                             <hr />
-                            <div className="row mb-4">
-                                <div className="col-6">
-                                    <img alt="" className="detail__img" src={asideImg} />
-                                </div>
-                                <div className="pl-0 pr-0 col-6">
-                                    <a className="detail__deco-a" href="#">
-                                        <strong> Mỹ phẩm Châu Âu</strong>
-                                    </a>
-                                    <img alt="" className="detail__img" src={heart4} />
-                                    <img alt="" src={asidePrice} />
-                                </div>
-                            </div>
-                            <hr />
-                            <div className="row mb-4">
-                                <div className="col-6">
-                                    <img alt="" className="detail__img" src={asideImg} />
-                                </div>
-                                <div className="pl-0 pr-0 col-6">
-                                    <a className="detail__deco-a" href="#">
-                                        <strong> Mỹ phẩm Châu Âu</strong>
-                                    </a>
-                                    <img alt="" className="detail__img" src={heart4} />
-                                    <img alt="" src={asidePrice} />
-                                </div>
-                            </div>
-                            <br />
+
+                            {/* ============================================= */}
+
                             <div className="row">
                                 <div className="col-12 d-none d-lg-block">
                                     <a className="detail__deco-a" href="#">

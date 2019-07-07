@@ -6,9 +6,10 @@ class OneProduct extends Component {
         const productDetail = {
             pathname: "/product-detail",
             params: {
-                linkImage: this.props.linkImage,
+                id: this.props.id,
                 price: this.props.price,
                 heading: this.props.heading,
+                linkImage: this.props.linkImage,
                 description: this.props.description
             }
         };

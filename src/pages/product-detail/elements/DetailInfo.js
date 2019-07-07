@@ -6,7 +6,18 @@ import detail3 from "../../../images/detail3.png";
 import detail4 from "../../../images/detail4.png";
 
 export default class DetailInfo extends Component {
-    componentDidMount() {}
+    componentDidMount() {
+        if (this.props.dataOneProduct !== undefined) {
+            localStorage.setItem(
+                `viewedProduct-${parseInt(this.props.dataOneProduct.id)}`,
+                JSON.stringify({
+                    heading: this.props.dataOneProduct.heading,
+                    linkImage: this.props.dataOneProduct.linkImage,
+                    price: this.props.dataOneProduct.price
+                })
+            );
+        }
+    }
     render() {
         return (
             <div className="container">
@@ -30,21 +41,31 @@ export default class DetailInfo extends Component {
                                     alt=""
                                     className="ml-5"
                                     style={{ width: "55%" }}
-                                    src={process.env.PUBLIC_URL + "/images/" + this.props.dataOneProduct.linkImage}
+                                    src={
+                                        this.props.dataOneProduct !== undefined
+                                            ? process.env.PUBLIC_URL + "/images/" + this.props.dataOneProduct.linkImage
+                                            : ""
+                                    }
                                 />
                             </div>
                         </div>
                         <div className="col-md-5">
-                            <h5 className="mb-0">{this.props.dataOneProduct.heading}</h5>
+                            <h5 className="mb-0">
+                                {this.props.dataOneProduct !== undefined ? this.props.dataOneProduct.heading : ""}
+                            </h5>
                             <small className="text-muted">TIFFANY MS 8050</small>
                             <br />
-                            <h2 className="para--price-detail">{this.props.dataOneProduct.price}</h2>
+                            <h2 className="para--price-detail">
+                                {this.props.dataOneProduct !== undefined ? this.props.dataOneProduct.price : ""}
+                            </h2>
                             <small>
                                 <i>
                                     <strike>499.000đ</strike>
                                 </i>
                             </small>
-                            <p className="para para--detail">{this.props.dataOneProduct.description}</p>
+                            <p className="para para--detail">
+                                {this.props.dataOneProduct !== undefined ? this.props.dataOneProduct.description : ""}
+                            </p>
                             <div className="form-group">
                                 <label>
                                     <strong> MÀU SẮC</strong>
