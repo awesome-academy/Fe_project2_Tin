@@ -98,6 +98,26 @@ export default class MoreInfo extends Component {
                                     <img alt="" className="detail__img" src={spDetail4} />
                                 </div>
                             </div>
+                            <div
+                                class="fb-comments"
+                                data-href="http://localhost:3001/product-detail"
+                                data-width=""
+                                data-numposts="5"
+                            />
+                            <div
+                                class="fb-share-button"
+                                data-href="http://localhost:3001/product-detail"
+                                data-layout="button_count"
+                                data-size="large"
+                            >
+                                <a
+                                    target="_blank"
+                                    href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3001%2Fproduct-detail&amp;src=sdkpreparse"
+                                    class="fb-xfbml-parse-ignore"
+                                >
+                                    Chia sẻ
+                                </a>
+                            </div>
                         </div>
 
                         {/* COMPONENT RECENTLY VIEWED PRODUCTS        */}
