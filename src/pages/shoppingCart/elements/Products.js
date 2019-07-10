@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class Products extends Component {
     removeProduct = e => {
         const idProductRemove = parseInt(e.target.parentNode.parentNode.parentNode.id);
-
         this.props.removeProduct(idProductRemove);
     };
 

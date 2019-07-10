@@ -1,17 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import { getUser } from "../../../redux/actions/index";
+import { getUser, getAllUser } from "../../../redux/actions/index";
 class FormSignIn extends Component {
-    state = {
-        username: "",
-        password: ""
-    };
+    constructor() {
+        super();
+        this.state = { username: "", password: "" };
+        this.findID = this.findID.bind(this);
+    }
 
     signIn = e => {
         e.preventDefault();
         this.props.getUser(this.state.username, this.state.password);
+        this.findID();
     };
+    findID() {
+        this.props.allUser.forEach(user => {
+            if (user.username === this.state.username) {
+                localStorage.setItem("idLogined", user.id);
+                return;
+            }
+        });
+    }
+
+    componentDidMount() {
+        this.props.getAllUser();
+    }
 
     render() {
         if (this.props.auth === true) {
@@ -29,6 +43,7 @@ class FormSignIn extends Component {
         return (
             <div className="container">
                 {localStorage.clear()}
+
                 <div className="row">
                     <div className="col-md-12 pl-0 pr-0 mb-5">
                         <div className="form-group custom-form">
@@ -40,18 +55,12 @@ class FormSignIn extends Component {
                                 <input
                                     className="form-control"
                                     type="text"
-                                    name=""
-                                    id=""
-                                    aria-describedby="helpId"
                                     onChange={e => this.setState({ username: e.target.value })}
                                 />
                                 <label>Password*</label>
                                 <input
                                     className="form-control mb-3"
                                     type="text"
-                                    name=""
-                                    id=""
-                                    aria-describedby="helpId"
                                     onChange={e => this.setState({ password: e.target.value })}
                                 />
                                 <br />
@@ -60,8 +69,6 @@ class FormSignIn extends Component {
                                 </Link>
                                 <button
                                     className="btn btn-dark custom-btn ml-4"
-                                    name=""
-                                    id=""
                                     role="button"
                                     type="submit"
                                     onClick={() => this.signIn}
@@ -78,9 +85,9 @@ class FormSignIn extends Component {
 }
 
 const mapStateToProps = state => {
-    return { auth: state.auth };
+    return { auth: state.auth, allUser: state.allUser };
 };
 export default connect(
     mapStateToProps,
-    { getUser }
+    { getUser, getAllUser }
 )(FormSignIn);

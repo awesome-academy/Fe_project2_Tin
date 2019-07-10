@@ -1,87 +1,113 @@
 {
-    "products": [
+  "products": [
+    {
+      "id": "0",
+      "heading": "Mỹ phẩm Châu Âu",
+      "price": 300000,
+      "description": "Mỹ phẩm Châu Âu - Bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khi thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà.",
+      "linkImage": "spbc-3.png",
+      "sold": 52
+    },
+    {
+      "id": "2",
+      "heading": "Mỹ phẩm Châu Á",
+      "price": 220000,
+      "description": "Mỹ phẩm Châu Á Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khi thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà.",
+      "linkImage": "spbc-1.png",
+      "sold": 31
+    },
+    {
+      "id": "1",
+      "heading": "Mỹ phẩm Châu Mỹ",
+      "price": 200000,
+      "description": "Mỹ phẩm Châu Mỹ - bộ sưu tập mang tính hoang dã này cung cấp cho một cái gật đầu với qua trong khi thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà.",
+      "linkImage": "spbc-4.png",
+      "sold": 48
+    },
+    {
+      "id": "3",
+      "heading": "Mỹ phẩm Hàn Quốc",
+      "price": 190000,
+      "description": "Mỹ phẩm Hàn Quốc - biểu tượng của ngành công nhgiệp giải trí tại Hàn Quốc",
+      "linkImage": "spbc-2.png",
+      "sold": 29
+    },
+    {
+      "id": "4",
+      "heading": "Mỹ phẩm Việt Nam",
+      "price": 100000,
+      "description": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, một bộ sưu tập mang tính biểu tượng.",
+      "linkImage": "spbc-2.png",
+      "sold": 20
+    },
+    {
+      "id": "5",
+      "heading": "Mỹ phẩm nhà làm",
+      "price": 150000,
+      "description": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khi thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà.",
+      "linkImage": "spbc-2.png",
+      "sold": 9
+    }
+  ],
+  "users": [
+    {
+      "id": 3,
+      "username": "phamtinnnn",
+      "password": "123",
+      "dataOrder": [],
+      "email": "tin@gmail"
+    },
+    {
+      "id": 2,
+      "username": "phamtin",
+      "password": "123",
+      "dataOrder": [],
+      "email": "tin@gmail"
+    },
+    {
+      "id": 1,
+      "username": "tin",
+      "password": "123",
+      "dataOrder": [],
+      "email": "tin@gmail.com"
+    }
+  ],
+  "history": [
+    {
+      "id": 1,
+      "pays": []
+    },
+    {
+      "id": 2,
+      "pays": []
+    },
+    {
+      "id": 3,
+      "pays": [
         {
-            "id": "0",
-            "heading": "Mỹ phẩm Châu Âu",
-            "price": 300000,
-            "description": "Mỹ phẩm Châu Âu - Bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khi thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà.",
-            "linkImage": "spbc-3.png",
-            "sold": 52
-        },
-        {
-            "id": "2",
-            "heading": "Mỹ phẩm Châu Á",
-            "price": 220000,
-            "description": "Mỹ phẩm Châu Á Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khi thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà.",
-            "linkImage": "spbc-1.png",
-            "sold": 31
-        },
-        {
-            "id": "1",
-            "heading": "Mỹ phẩm Châu Mỹ",
-            "price": 200000,
-            "description": "Mỹ phẩm Châu Mỹ - bộ sưu tập mang tính hoang dã này cung cấp cho một cái gật đầu với qua trong khi thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà.",
-            "linkImage": "spbc-4.png",
-            "sold": 48
-        },
-        {
-            "id": "3",
-            "heading": "Mỹ phẩm Hàn Quốc",
-            "price": 190000,
-            "description": "Mỹ phẩm Hàn Quốc - biểu tượng của ngành công nhgiệp giải trí tại Hàn Quốc",
-            "linkImage": "spbc-2.png",
-            "sold": 29
-        },
-        {
-            "id": "4",
-            "heading": "Mỹ phẩm Việt Nam",
-            "price": 100000,
-            "description": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, một bộ sưu tập mang tính biểu tượng.",
-            "linkImage": "spbc-2.png",
-            "sold": 20
-        },
-        {
-            "id": "5",
-            "heading": "Mỹ phẩm nhà làm",
-            "price": 150000,
-            "description": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khi thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà.",
-            "linkImage": "spbc-2.png",
-            "sold": 9
+          "id": 1,
+          "total": 300,
+          "products": [
+            {
+              "idProduct": 1,
+              "headingProduct": "Mỹ phẩm Châu Âu",
+              "quantity": 2,
+              "price": 200
+            },
+            {
+              "idProduct": 2,
+              "headingProduct": "Mỹ phẩm Châu Á",
+              "quantity": 1,
+              "price": 100
+            }
+          ],
+          "date": "19-07-2019"
         }
-    ],
-    "users": [
-        {
-            "id": 3,
-            "username": "nguyennguyen",
-            "password": "123",
-            "dataOrder": [
-                {
-                    "id": 1,
-                    "quantity": 1
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "username": "phuonganh",
-            "password": "123456",
-            "dataOrder": [
-                {
-                    "id": 1,
-                    "quantity": 1
-                }
-            ]
-        },
-        {
-            "username": "phamtin",
-            "password": "123",
-            "dataOrder": [
-                {
-                    "id": 1,
-                    "quantity": 1
-                }
-            ],
-            "id": 1
-        }
-    ]
+      ]
+    },
+    {
+      "id": 4,
+      "pays": []
+    }
+  ]
 }

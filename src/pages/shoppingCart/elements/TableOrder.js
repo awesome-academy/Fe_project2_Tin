@@ -1,29 +1,89 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Products from "./Products";
+import { connect } from "react-redux";
+import { getHistory } from "../../../redux/actions/index";
+import HistoryPayment from "./HistoryPayment";
+import axios from "axios";
 
-export default class tableOrder extends Component {
+class TableOrder extends Component {
     constructor() {
         super();
-        this.state = { productInCart: [] };
+        this.state = {
+            productInCart: [],
+            totalInCart: 0
+        };
         this.removeProduct = this.removeProduct.bind(this);
     }
 
     componentDidMount() {
+        let total = 0;
         const listDetailProduct = JSON.parse(localStorage.getItem("userLogined")).dataOrder;
-        this.setState(prevState => ({
-            productInCart: listDetailProduct
-        }));
+        this.setState({ productInCart: listDetailProduct });
+        listDetailProduct.forEach(product => {
+            total = total + product.price * product.quantity;
+            return total;
+        });
+        this.setState({ totalInCart: total });
     }
-    componentDidUpdate() {}
-
     removeProduct(id) {
         this.state.productInCart.forEach(product => {
             if (parseInt(product.idProduct) === id) {
                 this.setState({ productInCart: this.state.productInCart.filter(e => e !== product) });
             }
         });
+        const dataOrder = JSON.parse(localStorage.getItem("userLogined")).dataOrder;
+        const login = JSON.parse(localStorage.getItem("userLogined")).login;
+        const user = JSON.parse(localStorage.getItem("userLogined")).user;
+        for (let i = 0; i < dataOrder.length; i++) {
+            if (parseInt(dataOrder[i].idProduct) === id) {
+                dataOrder.splice(i, 1);
+            }
+        }
+        localStorage.setItem(
+            "userLogined",
+            JSON.stringify({
+                login: login,
+                user: user,
+                dataOrder: dataOrder
+            })
+        );
     }
+    ctrlPay = () => {
+        const idUser = parseInt(localStorage.getItem("idLogined"));
+        this.props.getHistory(idUser);
+    };
+
+    updateHistory = () => {
+        const newPay = {
+            id: this.props.history.pays.length + 1,
+            total: this.state.totalInCart,
+            products: [...this.state.productInCart],
+            date: "19-07-2019"
+        };
+
+        const pays = this.props.history.pays;
+        pays.push(newPay);
+
+        var idHistory = 0;
+        const user = JSON.parse(localStorage.getItem("userLogined")).user;
+
+        switch (user[0]) {
+            case "phamtin":
+                idHistory = 2;
+                break;
+            case "tin":
+                idHistory = 1;
+                break;
+            case "nguyen":
+                idHistory = 3;
+                break;
+        }
+
+        axios.put(`http://localhost:3000/history/${idHistory}`, { id: 2, pays });
+        const tempUser = JSON.parse(localStorage.getItem("userLogined")).user;
+        localStorage.setItem("userLogined", JSON.stringify({ login: true, user: tempUser, dataOrder: [] }));
+    };
 
     renderProducts() {
         const listDetailProduct = this.state.productInCart;
@@ -34,14 +94,16 @@ export default class tableOrder extends Component {
                     key={product.headingProduct}
                     price={product.price}
                     heading={product.headingProduct}
-                    linkImage={product.linkImage}
                     quantity={product.quantity}
+                    linkImage={product.linkImage}
                     removeProduct={this.removeProduct}
                 />
             );
         });
     }
-
+    reload() {
+        window.location.reload();
+    }
     render() {
         return (
             <div>
@@ -87,7 +149,7 @@ export default class tableOrder extends Component {
                                 </thead>
                                 <tbody className="products">
                                     {this.state.productInCart.length === 0 ? (
-                                        <tr>
+                                        <tr className="table-borderless">
                                             <td />
                                             <td />
                                             <td>
@@ -109,20 +171,42 @@ export default class tableOrder extends Component {
                     <div className="row">
                         <div className="col-md-4 offset-md-8 mb-5">
                             <div className="option">
-                                <Link to="/" className="btn btn-dark custom-btn custom-btn mr-1" role="button">
+                                <Link
+                                    onClick={e => window.location.reload}
+                                    to="/"
+                                    className="btn btn-dark custom-btn custom-btn mr-1"
+                                    role="button"
+                                >
                                     TIẾP TỤC MUA HÀNG
                                 </Link>
                                 <button className="btn btn-dark custom-btn mr-1" id="delete-cart" href="#" role="button">
                                     XÓA
                                 </button>
-                                <Link className="btn btn-dark custom-btn custom-btn--update" role="button">
+                                <button
+                                    id="pay"
+                                    onClick={this.ctrlPay}
+                                    className="btn btn-dark custom-btn custom-btn--update"
+                                    role="button"
+                                >
                                     CẬP NHẬT (THANH TOÁN)
-                                </Link>
+                                </button>
                             </div>
                         </div>
                     </div>
+                    <HistoryPayment dataHistory={this.props.history} />
+
+                    {this.props.history !== null ? this.updateHistory() : "FAIL "}
                 </div>
             </div>
         );
     }
 }
+
+const mapStateToProps = state => {
+    return { history: state.history };
+};
+
+export default connect(
+    mapStateToProps,
+    { getHistory }
+)(TableOrder);
