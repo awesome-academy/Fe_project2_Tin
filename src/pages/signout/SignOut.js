@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, Route, Link } from "react-router-dom";
+import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
 
 export default class SignOut extends Component {
     yes() {
@@ -14,6 +16,7 @@ export default class SignOut extends Component {
     render() {
         return (
             <div>
+                <NavBar />
                 <div className="container">
                     <div className="row text-center" style={{ marginTop: "200px" }}>
                         <div className="col-sm-12">
@@ -27,6 +30,7 @@ export default class SignOut extends Component {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         );
     }

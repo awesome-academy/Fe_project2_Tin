@@ -5,6 +5,8 @@ import getHistory from "./getHistory";
 import getUsers from "./getUsers";
 import getOneUser from "./getOneUser";
 import EditUser from "./EditUser";
+import authAdmin from "./admin/authAdmin";
+import getAdmins from "./admin/getAdmins";
 
 export default combineReducers({
     allUser: getUsers,
@@ -12,5 +14,10 @@ export default combineReducers({
     auth: authUser,
     history: getHistory,
     dataOneUser: getOneUser,
-    editAccount: EditUser
+    editAccount: EditUser,
+
+    //=================================
+
+    authAdmin: authAdmin,
+    allAdmin: getAdmins
 });
