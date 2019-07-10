@@ -1,10 +1,13 @@
 import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
 
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import Home from "../pages/home/Home";
 import ProductDetail from "../pages/product-detail/ProductDetail";
+import SignIn from "../pages/signin/SignIn";
+import SignUp from "../pages/signup/Signup";
+import ShoppingCart from "../pages/shoppingCart/ShoppingCart";
 
 class App extends React.Component {
     render() {
@@ -14,7 +17,11 @@ class App extends React.Component {
                     <NavBar />
                     <div>
                         <Route path="/" exact component={Home} />
+                        <Route path="/home" exact component={Home} />
                         <Route path="/product-detail" component={ProductDetail} />
+                        <Route path="/sign-in" component={SignIn} />
+                        <Route path="/sign-up" component={SignUp} />
+                        <Route path="/shoppingCart" component={ShoppingCart} />
                     </div>
                     <Footer />
                 </BrowserRouter>

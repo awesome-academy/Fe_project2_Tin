@@ -1,5 +1,7 @@
 import React from "react";
 import "../css/style.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import logo from "../images/logo.png";
 
 class NavBar extends React.Component {
@@ -7,9 +9,9 @@ class NavBar extends React.Component {
         return (
             <nav className="navbar navbar-expand-md navbar-light bg-light custom-nav">
                 <div className="container">
-                    <a className="navbar-brand custom-nav--brand" href="./homev2.html">
+                    <Link className="navbar-brand custom-nav--brand" to="/">
                         <img className="custom-nav--logo" src={logo} />
-                    </a>
+                    </Link>
                     <button
                         className="navbar-toggler d-lg-none"
                         type="button"
