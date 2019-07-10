@@ -40,6 +40,7 @@ export default class SPBC extends Component {
                                 {this.props.listProduct.map(product => {
                                     return (
                                         <OneProduct
+                                            id={product.id}
                                             sold={product.sold}
                                             price={product.price}
                                             key={product.heading}
