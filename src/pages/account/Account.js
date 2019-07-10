@@ -5,7 +5,12 @@ import { getOneUser } from "../../redux/actions/index";
 
 class Account extends Component {
     componentDidMount() {
+<<<<<<< HEAD
         this.props.getOneUser(2);
+=======
+        const idUser = parseInt(localStorage.getItem("idLogined"));
+        this.props.getOneUser(idUser);
+>>>>>>> 3f830ee... see, update profile
     }
 
     render() {
@@ -23,9 +28,13 @@ class Account extends Component {
                         <table className="table mt-5">
                             <tr>
                                 <th>username</th>
+<<<<<<< HEAD
                                 <td>
                                     <input value={this.props.dataOneUser.username} onChange={e => ""} />
                                 </td>
+=======
+                                <td>{this.props.dataOneUser.username}</td>
+>>>>>>> 3f830ee... see, update profile
                             </tr>
                             <tr>
                                 <th scope="row">email</th>

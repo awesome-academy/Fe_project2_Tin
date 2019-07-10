@@ -10,6 +10,13 @@ export const getOneUser = idUser => async dispatch => {
     dispatch({ type: "ONE_USER", payload: response.data });
 };
 
+export const editProfile = (id, username, password, email) => {
+    return {
+        type: "EDIT_PROFILE",
+        payload: { id: id, newUser: username, newPass: password, newEmail: email }
+    };
+};
+
 export const getAllUser = () => async dispatch => {
     const response = await axios(`http://localhost:3000/users`);
     dispatch({ type: "GET_USERS", payload: response.data });

@@ -54,6 +54,7 @@ class TableOrder extends Component {
     };
 
     updateHistory = () => {
+        const idUser = parseInt(localStorage.getItem("idLogined"));
         const newPay = {
             id: this.props.history.pays.length + 1,
             total: this.state.totalInCart,
@@ -77,14 +78,16 @@ class TableOrder extends Component {
                     key={product.headingProduct}
                     price={product.price}
                     heading={product.headingProduct}
-                    linkImage={product.linkImage}
                     quantity={product.quantity}
+                    linkImage={product.linkImage}
                     removeProduct={this.removeProduct}
                 />
             );
         });
     }
-
+    reload() {
+        window.location.reload();
+    }
     render() {
         return (
             <div>
@@ -152,7 +155,12 @@ class TableOrder extends Component {
                     <div className="row">
                         <div className="col-md-4 offset-md-8 mb-5">
                             <div className="option">
-                                <Link to="/" className="btn btn-dark custom-btn custom-btn mr-1" role="button">
+                                <Link
+                                    onClick={e => window.location.reload}
+                                    to="/"
+                                    className="btn btn-dark custom-btn custom-btn mr-1"
+                                    role="button"
+                                >
                                     TIẾP TỤC MUA HÀNG
                                 </Link>
                                 <button className="btn btn-dark custom-btn mr-1" id="delete-cart" href="#" role="button">
