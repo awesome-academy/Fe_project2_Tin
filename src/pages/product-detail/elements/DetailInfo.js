@@ -1,11 +1,19 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import detail1 from "../../../images/detail1.png";
 import detail2 from "../../../images/detail2.png";
 import detail3 from "../../../images/detail3.png";
 import detail4 from "../../../images/detail4.png";
 
-export default class DetailInfo extends Component {
+class DetailInfo extends Component {
+    constructor() {
+        super();
+        this.state = { idProduct: 0, quantity: 0 };
+        this.addCart = this.addCart.bind(this);
+    }
+
     componentDidMount() {
         if (this.props.dataOneProduct !== undefined) {
             localStorage.setItem(
@@ -16,9 +24,28 @@ export default class DetailInfo extends Component {
                     price: this.props.dataOneProduct.price
                 })
             );
+            this.setState({ idProduct: this.props.dataOneProduct.id });
         }
     }
+
+    addCart() {
+        const choseProduct = {
+            headingProduct: this.props.dataOneProduct.heading,
+            price: this.props.dataOneProduct.price,
+            idProduct: this.state.idProduct,
+            linkImage: this.props.dataOneProduct.linkImage,
+            quantity: this.state.quantity
+        };
+        let infoOrder = JSON.parse(localStorage.getItem("userLogined"));
+        infoOrder.dataOrder.push(choseProduct);
+        localStorage.setItem("userLogined", JSON.stringify(infoOrder));
+    }
+
     render() {
+        const addToCart = {
+            pathname: "/shoppingCart"
+        };
+
         return (
             <div className="container">
                 <div className="detail">
@@ -73,7 +100,6 @@ export default class DetailInfo extends Component {
                                 <input
                                     className="form-control custom-input--detail"
                                     type="text"
-                                    id=""
                                     onChange={() => ""}
                                     placeholder="Màu bạc"
                                 />
@@ -84,28 +110,32 @@ export default class DetailInfo extends Component {
                                 <input
                                     className="form-control custom-input--detail input-amount"
                                     type="text"
-                                    onChange={() => ""}
+                                    onChange={e => this.setState({ quantity: e.target.value })}
                                     id=""
-                                    value="1"
                                 />
                             </div>
-                            <a
+                            <Link
+                                onClick={this.addCart}
+                                to={addToCart}
                                 className="btn btn-light custom-btn custom-btn--detail add-cart-btn"
                                 name=""
                                 id="submit"
-                                href="shoppingCart.html"
                                 role="button"
                             >
                                 Thêm vào giỏ hàng
-                            </a>
+                            </Link>
                             <img alt="" className="ml-1 mt-n2" src="../../asset/images/green-heart.png" />
                             <br />
                             <small>
                                 Shipping &amp;<a href="#"> return</a>
                             </small>
-                            <a href="./page404.html">
-                                <img alt="" className="col-lg-10 detail__img" src="../../asset/images/links.png" />
-                            </a>
+                            <Link to="/">
+                                <img
+                                    alt=""
+                                    className="col-lg-10 detail__img"
+                                    src={process.env.PUBLIC_URL + "/images/" + "links.png"}
+                                />
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -113,3 +143,9 @@ export default class DetailInfo extends Component {
         );
     }
 }
+
+const mapStateToProps = state => {
+    return { productAdded: state.productAdded };
+};
+
+export default connect(mapStateToProps)(DetailInfo);

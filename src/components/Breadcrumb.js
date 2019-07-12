@@ -9,12 +9,12 @@ class Breadcrumb extends Component {
                     <div className="container">
                         <div className="row">
                             <li className="breadcrumb-item">
-                                <Link to="../../pug/home.html">Home</Link>
+                                <Link to="/">Home</Link>
                             </li>
-                            <li className="breadcrumb-item">
-                                <Link to="../../pug/home.html">Sản phẩm</Link>
-                            </li>
-                            <li className="breadcrumb-item">Mỹ phẩm</li>
+                            {/* <li className="breadcrumb-item">
+                                <Link to="">Sản phẩm</Link>
+                            </li> */}
+                            <li className="breadcrumb-item">{this.props.path1}</li>
                         </div>
                         <hr />
                     </div>

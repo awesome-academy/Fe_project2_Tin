@@ -48,5 +48,40 @@
             "linkImage": "spbc-2.png",
             "sold": 9
         }
+    ],
+    "users": [
+        {
+            "id": 3,
+            "username": "nguyennguyen",
+            "password": "123",
+            "dataOrder": [
+                {
+                    "id": 1,
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "username": "phuonganh",
+            "password": "123456",
+            "dataOrder": [
+                {
+                    "id": 1,
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "username": "phamtin",
+            "password": "123",
+            "dataOrder": [
+                {
+                    "id": 1,
+                    "quantity": 1
+                }
+            ],
+            "id": 1
+        }
     ]
 }

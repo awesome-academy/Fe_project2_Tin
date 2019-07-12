@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import pay from "../images/pay.png";
+import SignIn from "../pages/signin/SignIn";
 class Footer extends Component {
     render() {
         return (
@@ -55,24 +58,30 @@ class Footer extends Component {
                                     <strong>MY ACCOUNT</strong>
                                 </li>
                                 <li>
-                                    <a className="text-muted" href="./shoppingCart.html">
+                                    <Link className="text-muted" to="/shoppingCart">
                                         Giỏ hàng
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="text-muted" href="./account.html">
+                                    <Link className="text-muted" to="/sign-in">
                                         My account
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="text-muted" href="./resgister.html">
+                                    <Link className="text-muted" to="/sign-up">
                                         Đăng ký tài khoản
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="text-muted" href="./login.html">
-                                        Đăng nhập
-                                    </a>
+                                    {localStorage.getItem(`userLogined`) == undefined ? (
+                                        <Link className="text-muted" to="/sign-in">
+                                            Đăng nhập
+                                        </Link>
+                                    ) : (
+                                        <Link className="text-muted" to="/sign-out">
+                                            Đăng xuất
+                                        </Link>
+                                    )}
                                 </li>
                             </ul>
                         </div>
@@ -86,9 +95,9 @@ class Footer extends Component {
                                 <p className="para para--pay">CopyRight@ 2015 - 2019 | Danang Sun-asterisk</p>
                             </div>
                             <div className="col-6 col-md-3 offset-md-2 offset-lg-3">
-                                <a href="#">
+                                <Link to="/sign-in">
                                     <img className="shoppingCart--img" src={pay} />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
