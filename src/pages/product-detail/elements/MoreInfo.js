@@ -98,6 +98,12 @@ export default class MoreInfo extends Component {
                                     <img alt="" className="detail__img" src={spDetail4} />
                                 </div>
                             </div>
+                            <div
+                                class="fb-comments"
+                                data-href="http://localhost:3001/product-detail"
+                                data-width=""
+                                data-numposts="5"
+                            />
                         </div>
 
                         {/* COMPONENT RECENTLY VIEWED PRODUCTS        */}
