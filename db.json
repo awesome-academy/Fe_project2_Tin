@@ -51,28 +51,7 @@
     ],
     "users": [
         {
-            "id": 3,
-            "username": "nguyennguyen",
-            "password": "123",
-            "dataOrder": [
-                {
-                    "id": 1,
-                    "quantity": 1
-                }
-            ]
-        },
-        {
             "id": 2,
-            "username": "phuonganh",
-            "password": "123456",
-            "dataOrder": [
-                {
-                    "id": 1,
-                    "quantity": 1
-                }
-            ]
-        },
-        {
             "username": "phamtin",
             "password": "123",
             "dataOrder": [
@@ -81,7 +60,236 @@
                     "quantity": 1
                 }
             ],
-            "id": 1
+            "email": "tinphamtp@gmail.com"
+        },
+        {
+            "id": 1,
+            "username": "tin",
+            "password": "123",
+            "dataOrder": [],
+            "email": ""
+        }
+    ],
+    "history": [
+        {
+            "id": 1,
+            "pays": [
+                {
+                    "id": 1,
+                    "total": 300,
+                    "products": [
+                        {
+                            "idProduct": 1,
+                            "headingProduct": "Mỹ phẩm Châu Âu",
+                            "quantity": 2,
+                            "price": 200
+                        },
+                        {
+                            "idProduct": 2,
+                            "headingProduct": "Mỹ phẩm Châu Á",
+                            "quantity": 1,
+                            "price": 100
+                        }
+                    ],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 2,
+                    "total": 600000,
+                    "products": [
+                        {
+                            "headingProduct": "Mỹ phẩm Châu Mỹ",
+                            "price": 200000,
+                            "idProduct": "1",
+                            "linkImage": "spbc-4.png",
+                            "quantity": "3"
+                        }
+                    ],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 3,
+                    "total": 600000,
+                    "products": [
+                        {
+                            "headingProduct": "Mỹ phẩm Châu Mỹ",
+                            "price": 200000,
+                            "idProduct": "1",
+                            "linkImage": "spbc-4.png",
+                            "quantity": "3"
+                        }
+                    ],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 4,
+                    "total": 600000,
+                    "products": [],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 5,
+                    "total": 600000,
+                    "products": [],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 6,
+                    "total": 2200000,
+                    "products": [
+                        {
+                            "headingProduct": "Mỹ phẩm Châu Mỹ",
+                            "price": 200000,
+                            "idProduct": "1",
+                            "linkImage": "spbc-4.png",
+                            "quantity": "11"
+                        }
+                    ],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 7,
+                    "total": 6270000,
+                    "products": [
+                        {
+                            "headingProduct": "Mỹ phẩm Hàn Quốc",
+                            "price": 190000,
+                            "idProduct": "3",
+                            "linkImage": "spbc-2.png",
+                            "quantity": "33"
+                        }
+                    ],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 8,
+                    "total": 8800000,
+                    "products": [
+                        {
+                            "headingProduct": "Mỹ phẩm Châu Mỹ",
+                            "price": 200000,
+                            "idProduct": "1",
+                            "linkImage": "spbc-4.png",
+                            "quantity": "44"
+                        }
+                    ],
+                    "date": "19-07-2019"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "pays": [
+                {
+                    "id": 1,
+                    "total": 400000,
+                    "products": [
+                        {
+                            "headingProduct": "Mỹ phẩm Châu Mỹ",
+                            "price": 200000,
+                            "idProduct": "1",
+                            "linkImage": "spbc-4.png",
+                            "quantity": "2"
+                        }
+                    ],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 2,
+                    "total": 0,
+                    "products": [],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 3,
+                    "total": 0,
+                    "products": [],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 4,
+                    "total": 660000,
+                    "products": [
+                        {
+                            "headingProduct": "Mỹ phẩm Châu Á",
+                            "price": 220000,
+                            "idProduct": "2",
+                            "linkImage": "spbc-1.png",
+                            "quantity": "3"
+                        }
+                    ],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 5,
+                    "total": 0,
+                    "products": [],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 6,
+                    "total": 0,
+                    "products": [],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 7,
+                    "total": 0,
+                    "products": [],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 8,
+                    "total": 0,
+                    "products": [],
+                    "date": "19-07-2019"
+                },
+                {
+                    "id": 9,
+                    "total": 1170000,
+                    "products": [
+                        {
+                            "headingProduct": "Mỹ phẩm Hàn Quốc",
+                            "price": 190000,
+                            "idProduct": "3",
+                            "linkImage": "spbc-2.png",
+                            "quantity": "3"
+                        },
+                        {
+                            "headingProduct": "Mỹ phẩm Châu Âu",
+                            "price": 300000,
+                            "idProduct": "0",
+                            "linkImage": "spbc-3.png",
+                            "quantity": "2"
+                        }
+                    ],
+                    "date": "19-07-2019"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "pays": [
+                {
+                    "id": 1,
+                    "total": 300,
+                    "products": [
+                        {
+                            "idProduct": 1,
+                            "headingProduct": "Mỹ phẩm Châu Âu",
+                            "quantity": 2,
+                            "price": 200
+                        },
+                        {
+                            "idProduct": 2,
+                            "headingProduct": "Mỹ phẩm Châu Á",
+                            "quantity": 1,
+                            "price": 100
+                        }
+                    ],
+                    "date": "19-07-2019"
+                }
+            ]
         }
     ]
 }

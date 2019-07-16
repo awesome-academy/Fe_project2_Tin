@@ -63,7 +63,7 @@ class Footer extends Component {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-muted" to="/sign-in">
+                                    <Link className="text-muted" to="/account">
                                         My account
                                     </Link>
                                 </li>
@@ -73,7 +73,7 @@ class Footer extends Component {
                                     </Link>
                                 </li>
                                 <li>
-                                    {localStorage.getItem(`userLogined`) == undefined ? (
+                                    {JSON.parse(localStorage.getItem("userLogined")) === null ? (
                                         <Link className="text-muted" to="/sign-in">
                                             Đăng nhập
                                         </Link>

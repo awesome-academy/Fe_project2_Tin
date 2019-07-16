@@ -36,9 +36,9 @@ class DetailInfo extends Component {
             linkImage: this.props.dataOneProduct.linkImage,
             quantity: this.state.quantity
         };
-        let infoOrder = JSON.parse(localStorage.getItem("userLogined"));
-        infoOrder.dataOrder.push(choseProduct);
-        localStorage.setItem("userLogined", JSON.stringify(infoOrder));
+        let inforOrder = JSON.parse(localStorage.getItem("userLogined"));
+        inforOrder.dataOrder.push(choseProduct);
+        localStorage.setItem("userLogined", JSON.stringify(inforOrder));
     }
 
     render() {
