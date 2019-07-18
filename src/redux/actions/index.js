@@ -53,3 +53,23 @@ export const updateHistory = (idHistory, pays) => async dispatch => {
 export const signupAccount = newAccount => async => {
     return axios.post("http://localhost:3000/users", newAccount);
 };
+// ===================================================================
+//                          ACTION ADMIN
+// ===================================================================
+
+export const getAllAdmin = () => async dispatch => {
+    const response = await axios("http://localhost:3000/admin");
+    dispatch({
+        type: "GET_ADMINS",
+        payload: response.data
+    });
+};
+
+export const getAdmin = (adminname, password) => async dispatch => {
+    const response = await axios(`http://localhost:3000/admin`);
+    dispatch({
+        type: "GET_ADMIN",
+        payload: response.data,
+        comingAdmin: { adminname: adminname, password: password }
+    });
+};

@@ -8,6 +8,8 @@ import BlockImage from "./elements/BlockImage";
 import Perspect from "./elements/Perspect";
 import Review from "./elements/Review";
 import SPBC from "./elements/SPBC";
+import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
 
 class Home extends React.Component {
     /* Navbar and Footer is outside Router, hence not here */
@@ -23,6 +25,7 @@ class Home extends React.Component {
         return (
             <div>
                 <header>
+                    <NavBar />
                     <Jumpbotron />
                 </header>
                 <br />
@@ -33,6 +36,7 @@ class Home extends React.Component {
                     {this.SPBC()}
                     <Information />
                 </main>
+                <Footer />
             </div>
         );
     }
