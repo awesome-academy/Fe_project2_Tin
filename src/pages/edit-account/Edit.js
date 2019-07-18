@@ -1,15 +1,32 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getOneUser } from "../../redux/actions/index";
+import { getOneUser, editProfile } from "../../redux/actions/index";
 class Edit extends Component {
+    constructor() {
+        super();
+        this.state = {
+            newUsername: "",
+            newPassword: "",
+            newEmail: ""
+        };
+    }
+
+    saveChange = () => {
+        this.props.editProfile(
+            localStorage.getItem("idLogined"),
+            this.state.newUsername,
+            this.state.newPassword,
+            this.state.newEmail
+        );
+    };
+
     componentDidMount() {
-        this.props.getOneUser(2);
+        this.props.getOneUser(localStorage.getItem("idLogined"));
     }
     render() {
         return (
             <div className="container">
-                {console.log(this.props.dataOneUser)}
                 <div className="row">
                     <div className="col-8 col-md-3">
                         <h6 style={{ marginTop: "120px" }}>CHI TIẾT TÀI KHOẢN</h6>
@@ -21,20 +38,35 @@ class Edit extends Component {
                         <table className="table mt-5">
                             <tr>
                                 <th>username</th>
-                                <td>{this.props.dataOneUser.username}</td>
+                                <td>
+                                    <input
+                                        onChange={e => this.setState({ newUsername: e.target.value })}
+                                        placeholder={this.props.dataOneUser.username}
+                                    />
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">email</th>
-                                <td>{this.props.dataOneUser.email}</td>
+                                <td>
+                                    <input
+                                        onChange={e => this.setState({ newEmail: e.target.value })}
+                                        placeholder={this.props.dataOneUser.email}
+                                    />
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">password</th>
-                                <td type="password">{this.props.dataOneUser.password}</td>
+                                <td type="password">
+                                    <input
+                                        onChange={e => this.setState({ newPassword: e.target.value })}
+                                        placeholder={this.props.dataOneUser.password}
+                                    />
+                                </td>
                             </tr>
                         </table>
                     </div>
                     <div className="col-sm-2">
-                        <Link to="/edit-account" class="btn btn-dark" role="button">
+                        <Link to="/" onClick={this.saveChange} class="btn btn-dark" role="button">
                             Lưu
                         </Link>
                     </div>
@@ -50,5 +82,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getOneUser }
+    { getOneUser, editProfile }
 )(Edit);

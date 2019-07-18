@@ -5,6 +5,7 @@ export default class SignOut extends Component {
     yes() {
         localStorage.clear();
         alert("Đã đăng xuất");
+        window.location.reload();
     }
 
     no() {
